@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta 
+      name="description" 
+      content="A short essay about Science and Technology" 
+    />
+    <meta 
+      name="keywords" 
+      content="Essay, Science, Technology, Science and Technology, Essay : Science and Technology" 
+    />
+    <meta 
+      name="author" 
+      content="BlackLava" 
+    />
+    <meta 
+      name="viewport" 
+      content="width=device-width initial-scale=1"
+    />
+    <title>
+      Essay : Science and Technology
+    </title>
+    <style>
+      body{
+        background : linear-gradient(#00ff00, #0000ff);
+        height : 100vh;
+      }
+      
+      #name{
+        position : absolute;
+        text-align: center;
+        top : 0;
+        font-weight : bold;
+        width : 100vw;
+        margin-top : 30px;
+        background : linear-gradient(#0000ff, #00ff00);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+      }
+      
+      #essay{
+        position : fixed;
+        left : 2%;
+        text-align: justify;
+        overflow: scroll;
+        height : 85%;
+        margin : 10px;
+        transition : left 1s ease-in-out;
+      }
+      
+      #head, #body, #conclusion{
+        text-indent: 30px;
+      }
+      
+      #menu{
+        position : fixed;
+        width : 50%;
+        background : transparent;
+        overflow: scroll;
+        border-right-style : solid;
+        border-color : #ffffff;
+        border-width : 5px;
+        border-radius : 25px;
+        height : 85%;
+        left : -55%;
+        transition : left 1s ease-in-out;
+      }
+      
+      #menu_check{
+        display : none;
+      }
+      
+      #menu_check:checked~#menu{
+        left : 0;
+      }
+      
+      #menu_check:checked~#essay{
+        left : 50%;
+      }
+      
+      #menu_btn{
+        width : 50px;
+        height : auto;
+        background : transparent;
+        border-radius : 50px;
+        transition : background 0.5s ease-in-out;
+      }
+      
+      #menu_btn:hover{
+        background : #ffff00;
+      }
+      
+      #headMark, #bodyMark, #conclusionMark{
+        background-color: transparent;
+        transition : background-color 0.5s ease-in-out;
+      }
+      
+      .check{
+        text-align : center;
+        padding : 20px;
+        margin : 100px 15px 0px 15px;
+        border-radius : 25px;
+        transition : background-color 0.5s ease-in-out;
+      }
+    </style>
+    <script>
+      window.onload = () => {
+        const head = document.getElementsByClassName("check");
+        
+        head[0].addEventListener("click", headClick);
+        
+        head[1].addEventListener("click", bodyClick);
+        
+        head[2].addEventListener("click", conclusionClick)
+        
+        const headCheck = document.getElementById("headMark");
+        
+        let headCount = 0;
+        
+        function headClick(){
+          
+          headCheck.style.backgroundColor = headCount % 2 ? "transparent" : "#ffff00";
+          
+          head[0].style.backgroundColor = headCount % 2 ? "transparent" : "#ffff00";
+          
+          headCount++;
+        }
+        
+        const bodyCheck = document.getElementById("bodyMark");
+        
+        let bodyCount = 0;
+        
+        function bodyClick(){
+           bodyCheck.style.backgroundColor = bodyCount % 2 ? "transparent" : "#ffff00";
+           
+           head[1].style.backgroundColor = bodyCount % 2 ? "transparent" : "#ffff00";
+           
+           bodyCount++;
+        }
+        
+        const conclusionCheck = document.getElementById("conclusionMark");
+       
+        let conclusionCount = 0;
+        
+        function conclusionClick(){
+          
+          conclusionCheck.style.backgroundColor = conclusionCount % 2 ? "transparent" : "#ffff00"
+          
+          head[2].style.backgroundColor = conclusionCount % 2 ? "transparent" : "#ffff00";
+          
+          conclusionCount++;
+        }
+      }
+    </script>
+  </head>
+  <body>
+    <input 
+      type="checkbox" 
+      id="menu_check" 
+    />
+    <label for="menu_check">
+      <img 
+        src="https://i.ibb.co/QQbX5RC/kisspng-computer-icons-hamburger-button-menu-new-menu-5b34724c3cb0f7-1188475115301637882486.png"
+        alt="menu"
+        id="menu_btn"
+      />
+    </label>
+    <h3 id="name">
+      Essay : <u>Science and Technology</u>
+    </h3>
+    <div id="menu">
+      <h3 class="check"> 
+        Header
+      </h3>
+      <h3 class="check">
+        Body
+      </h3>
+      <h3 class="check">
+        Conclusion
+      </h3>
+    </div>
+    <div id="essay">
+      <p id="head">
+        <mark id="headMark">
+          Science and technology are an essential component of our everyday lives. The modern civilization is a contribution of science and technology.
+        </mark>
+      </p>
+      <p id="body">
+        <mark id="bodyMark">
+          Their presence is the reason for our improved lifestyle. The development that we see around us is a result of science and technology. Science and technology allow us to lead a comfortable life. The replacement of the bullock cart by a car is proof of science and technology. They are prevalent in every aspect of our lives.  Whether it is baking a cake or a launch of a satellite, we find science and technology. With the help of science and technology, we can search for life on other planets. They alert us by predicting the weather forecast.  Many lives can be saved when the metrological department warns us about the tornado, cyclone, hurricane, tsunami, etc.    Thus, we cannot deny the importance of science and technology.
+        </mark>
+      </p>
+      <p id="conclusion">
+        <mark id="conclusionMark">
+          Science and technology are not static. Every day there is a discovery. Science and technology is a significant factor in improving various sectors, such as agriculture, industry, transport, communication, education, health, construction, etc. We avail of the benefits that science and technology provide us. The knowledge of science and technology are helping us in the betterment of our lives.
+        </mark>
+      </p>
+    </div>
+  </body>
+</html>
