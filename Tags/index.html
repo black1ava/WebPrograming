@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Tags</title>
+  <style>
+    pre{
+      background : #808080;
+      padding : 5px;
+      color : #ffffff;
+    }
+  </style>
+</head>
+<body>
+  <center>
+    <header>
+      <h1>
+        <u>Time Complexity</u>
+      </h1>
+    </header>
+  </center>
+  <article>
+    <section>
+      <h1>Introduction</h1>
+      <p>
+        There are many ways to solve a programming problem, just like math and other solving problem knowledges. This allow solvers to have multiple choices to choose whether which one is the best solution for the problem, analysing on time and complexity. For example problem :
+      </p>
+      <blockquote>
+        <q style="font-size:18px;">
+          Given a list of numbers and return the largest number
+        </q>
+      </blockquote>
+      <p>
+        For the first sight, there are sereral solutions pop-up. Well, first of all an <em>array</em> can be declared to store the all the numbers. In order to find largest number, <em>loop</em> or <em>qsort()</em> build-in function can be used, otherwise you can create two functions <q>larger and largest</q> like this : 
+      </p>
+      <pre>
+        int larger(int a, int b){
+          return a > b ? a : b;
+        }
+        
+        int largest(int *array, int length){
+          int max = INT_MIN;
+          for(int i = 0; i &lt; length; i++){
+            max = larger(*(array + i), max);
+          }
+          return max;
+        }
+      </pre>
+      <p>
+        You can use <em>Linked List</em> to instead of array if you are good at data structure, since the problem said <em>a list of numbers</em> not <em><strike>an array of numbers</strike>.</em> 
+      </p>
+      <p>
+        You might think <q>There are a lot of way to solve, so which one I should choose</q>. Well, it is up to you. If you solve the problem just for fun, you can choose the one that first come to your head or the one that you think it's cool for you. Instead, if you want to improve your skill by solving the a problem, you have to think about <q><em> amount of time </em></q>of each algorithm would take. It is called <strong>Time Complexity</strong> or <strong>Big-O-Notation</strong>. 
+      </p>
+      <p>
+        By the way what is Time Complexity or Big-O-Notation?
+      </p>
+    </section>
+    <section>
+      <h1>Time Complexity</h1>
+      <p>
+        In computer science, the <strong>time complexity</strong> is the computational complexity that describes the amount of computer time it takes to run an algorithm.
+      </p>
+      <p>
+        There are a lot of type of time complexity, so today, we will talk about four types of time complexity : 
+      </p>
+      <ol>
+        <li>
+          <p>O(1)</p>
+        </li>
+        <li>
+          <p>O(n)</p>
+        </li>
+        <li>
+          <p>O(n<sup>2</sup>)</p>
+        </li>
+        <li>
+          <p>O(log n);</p>
+        </li>
+      </ol>
+      <p>
+        Example in real life
+      </p>
+      <p>
+        Imagine a classroom of 100 students in which you gave your pen to one person. Now, you want that pen. Here are some ways to find the pen and what the O order is.
+      </p>
+      <p>
+        O(n<sup>2</sup>): You go and ask the first person of the class, if he has the pen. Also, you ask this person about other 99 people in the classroom if they have that pen and so on, 
+        This is what we call O(n<sup>2</sup>). 
+      </p>
+      <p>
+        O(n): Going and asking each student individually is O(n). 
+      </p>
+      <p>
+      O(log n): Now I divide the class into two groups, then ask: “Is it on the left side, or the right side of the classroom?” Then I take that group and divide it into two and ask again, and so on. Repeat the process till you are left with one student who has your pen. This is what you mean by O(log n). 
+      </p>
+      <p>
+        I might need to do the O(n2) search if only one student knows on which student the pen is hidden. I’d use the O(n) if one student had the pen and only they knew it. I’d use the O(log n) search if all the students knew, but would only tell me if I guessed the right side. 
+      </p>
+      <p>
+        Example in code :
+      </p>
+      <pre>
+        printf("Hello World");
+        
+        Time Complexity : O(1)
+      </pre>
+      <pre>
+        for(int i = 0; i &lt; n; i++){
+          printf("Hello world");
+        } 
+        
+        Time Complexity : O(n)
+      </pre>
+      <pre>
+        for(int i = 0; i &lt; n; i++){
+          for(int j = 0; j &lt; n; j++){
+            printf("Hello world");
+          }
+        } 
+        
+        Time Complexity : O(n<sup>2</sup>)
+      </pre>
+      <pre>
+        for(int i = n; i >= 0; i /= 2){
+          printf("Hello World");
+        }
+        
+        Time Complexity : O(log n)
+      </pre>
+      <iframe width="100%" src="https://www.youtube.com/embed/D6xkbGLQesk" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    </section>
+    <section>
+      <h1>Best Solution</h1>
+      <p>
+        For our example problem, I came up with three solutions :
+      </p>
+      <ol>
+        <li>
+          Loop
+        </li>
+        <li>
+          qsort() build-in function
+        </li>
+        <li>
+          Linked list
+        </li>
+      </ol>
+      <p>
+        Click <a href="https://www.github.com/black1ava/Solution100Days/tree/master/C%2FOS%2FFind%20Max">here</a> to see those solutions, and compare them to find the best solution. And of course, you can come up your own new brand solution. 
+      </p>
+      <img width="100%" src="https://i.ibb.co/j3pDCVz/screenshot-5.png" alt="graph">
+      <p>
+        Based on chart above, we can determine which solution is the worst and the best. For example, if my solution is O(1), I don't care how many elements i have in my array, it take same amount of time. But if mine is O(n), the more elements I have, the more of time it would take. For example, if I have 10 elements, it will take 10ms. If i have 100 elements, it will take 100 ms. If I have 1,000,000,000 elements, it will take 11 days to finished.
+      </p>
+      <img width="100%" src="https://i.ibb.co/fvMJGyp/31781165-723a053c-b500-11e7-937c-7b33db281efe.png" alt="speed comparison">
+    </section>
+    <section>
+      <p>
+        Finally, if you can solve a problem, that's a success, but if you want to make your success cooler, think herder. 
+      </p>
+      <blockquote>
+        <q style="font-size:18px;">
+          No Pain, No Gain 
+        </q>
+      </blockquote>
+    </section>
+    <section>
+      <h1>Keywords</h1>
+      <p>
+        <mark>array</mark> : is a data structure consisting of a collection of elements (values or variables), each identified by at least one array index or key.
+      </p>
+      <p>
+        <mark>loop</mark> : is a sequence of instructions that is repeated until a certain condition is reached.
+      </p>
+      <p>
+        <mark>build-in function</mark> : A function which is already defined in a program or programming framework with a set of statements, which together performs a task and it is called Build-in function. So users need not create this type of function and can use directly in their program or application.
+      </p>
+      <p>
+        <mark>Linked List</mark> : an ordered set of data elements, each containing a link to its successor (and sometimes its predecessor).
+      </p>
+      <p>
+        <mark>Time Complexity</mark> : the computational complexity that describes the amount of computer time it takes to run an algorithm.
+      </p>
+    </section>
+    <section>
+      <h1>Reference</h1>
+      <a href="https://en.m.wikipedia.org/wiki/Time_complexity"><p>https://en.m.wikipedia.org/wiki/Time_complexity</p></a>
+      <a href="https://www.google.com/amp/s/www.geeksforgeeks.org/understanding-time-complexity-simple-examples/amp/"><p>https://www.google.com/amp/s/www.geeksforgeeks.org/understanding-time-complexity-simple-examples/amp/</p></a>
+      <a href="https://www.jessicayung.com/big-o-notation-a-common-mistake-and-documentation/"><p>https://www.jessicayung.com/big-o-notation-a-common-mistake-and-documentation/</p></a>
+      <a href="https://www.google.com/amp/s/www.freecodecamp.org/news/big-o-notation-explained-with-examples/amp/"><p>https://www.google.com/amp/s/www.freecodecamp.org/news/big-o-notation-explained-with-examples/amp/</p></a>
+    </section>
+  </article>
+</body>
+</html>
