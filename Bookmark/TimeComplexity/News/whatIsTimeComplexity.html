@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Information Technology - What Is Time Complexity?</title>
+  <style>
+    @import url(../../index.css);
+    @import url(../../ProgramingLanguagePage/index.css);
+    @import url(../../code.css);
+  </style>
+</head>
+<body>
+  <input type="checkbox" id="check">
+  <label for="check" id="menu-btn">Menu</label>
+  <nav>
+    <a href="#introduction">Introduction</a>
+    <a href="#time-complexity">Time Complexity</a>
+    <a href="#best-solution">Best Solution</a>
+    <a href="../../index.html">Go back</a>
+  </nav>
+  <div id="article">
+    <header>
+        <h1>What is Time Complexity?</h1>
+    </header>
+    <article>
+      <img class="img-article" src="https://i.ibb.co/7p7Jqgh/timecomplexity.png" alt="timecomplexity">
+      <section class="section">
+        <header id="introduction">
+          <h1 class="header-article">Introduction</h1>
+        </header>
+        <article>
+          <p>
+            There are many ways to solve a programming problem, just like math and other solving problem knowledges. This allow solvers to have multiple choices to choose whether which one is the best solution for the problem, analysing on time and complexity.
+            For example:
+          </p>
+          <blockquote>
+            <q>
+              Given a list of numbers and return the largest number
+            </q>
+          </blockquote>
+          <p>
+            For the first sight, there are sereral solutions pop-up. Well, first of all an array can be declared to store the all the numbers. In order to find largest number, loop or qsort() build-in function can be used, otherwise you can create two functions larger and largest like this :
+          </p>
+          <pre>
+            <span class="keyword">int</span> <span class="function">larger</span>(<span class="keyword">int</span> <span class="int-value">a</span> , <span class="keyword">int</span> <span class="int-value">b</span>){
+              <span class="keyword">return</span> <span class="int-value">a</span> &gt; <span class="int-value">b</span> ? <span class="int-value">a</span> : <span class="int-value">b</span>;
+            }
+            
+            <span class="keyword">int</span> <span class="function">largest</span>(<span class="keyword">int</span> *<span class="int-value">array</span>, <span class="keyword">int</span> <span class="int-value">length</span>){
+              <span class="keyword">int</span> <span class="int-value">max</span> = <span class="pre-defined">INT_MIN</span>;
+              <span class="keyword">for</span>(<span class="keyword">int</span> <span class="int-value">i</span> = 0; <span class="int-value">i</span> &lt; <span class="int-value">length</span>; <span class="int-value">i</span>++){
+                <span class="int-value">max</span> = <span class="function">larger</span>(*(<span class="int-value">array</span> + <span class="int-value">i</span>), <span class="int-value">max</span>);
+              }
+              <span class="keyword">return</span> <span class="int-value">max</span>;
+            }
+          </pre>
+          <p>
+            You can use Linked List to instead of array if you are good at data structure, since the problem said a list of numbers not <span style="text-decoration: line-through;">an array of numbers</span>.
+          </p>
+          <p>
+            You might think There are a lot of way to solve, so which one I should choose. Well, it is up to you. If you solve the problem just for fun, you can choose the one that first come to your head or the one that you think it's cool for you. Instead, if you want to improve your skill by solving the a problem, you have to think about  amount of time of each algorithm would take. It is called Time Complexity or Big-O-Notation.
+          </p>
+          <p>
+            By the way what is Time Complexity or Big-O-Notation?
+          </p>
+        </article>
+      </section>
+      <section class="section">
+        <header id="time-complexity">
+          <h1 class="header-article">Time Complexity</h1>
+        </header>
+        <article>
+          <p>
+            In computer science, the time complexity is the computational complexity that describes the amount of computer time it takes to run an algorithm.
+          </p>
+          <p>
+            There are a lot of type of time complexity, so today, we will talk about four types of time complexity :
+          </p>
+          <ol>
+            <li>O(1)</li>
+            <li>O(n)</li>
+            <li>O(n<sub>2</sub>)</li>
+            <li>O(log n)</li>
+          </ol>
+          <p>
+            Example in real life
+          </p>
+          <p>
+            Imagine a classroom of 100 students in which you gave your pen to one person. Now, you want that pen. Here are some ways to find the pen and what the O order is.
+          </p>
+          <p>
+            O(n2): You go and ask the first person of the class, if he has the pen. Also, you ask this person about other 99 people in the classroom if they have that pen and so on, This is what we call O(n2).
+          </p>
+          <p>
+            O(n): Going and asking each student individually is O(n).
+          </p>
+          <p>
+            O(log n): Now I divide the class into two groups, then ask: “Is it on the left side, or the right side of the classroom?” Then I take that group and divide it into two and ask again, and so on. Repeat the process till you are left with one student who has your pen. This is what you mean by O(log n).
+          </p>
+          <p>
+            I might need to do the O(n2) search if only one student knows on which student the pen is hidden. I’d use the O(n) if one student had the pen and only they knew it. I’d use the O(log n) search if all the students knew, but would only tell me if I guessed the right side.
+          </p>
+          <p>
+            Example in code :
+          </p>
+          <pre>
+            <span class="keyword">printf</span>(<span class="string">"Hello World"</span>);
+
+            Time Complexity : O(1)
+          </pre>
+          <pre>
+            <span class="keyword">for</span>(<span class="keyword">int</span> <span class="int-value">i</span> = 0; <span class="int-value">i</span> &lt; <span class="int-value">n</span>; <span class="int-value">i</span>++){
+              <span class="keyword">printf</span>(<span class="string">"Hello world"</span>);
+            } 
+            
+            Time Complexity : O(n)
+          </pre>
+          <pre>
+            <span class="keyword">for</span>(<span class="keyword">int</span> <span class="int-value">i</span> = 0; <span class="int-value">i</span> &lt; <span class="int-value">n</span>; <span class="int-value">i</span>++){
+              <span class="keyword">for</span>(<span class="keyword">int</span> <span class="int-value">j</span> = 0; <span class="int-value">j</span> &lt; <span class="int-value">n</span>; <span class="int-value">j</span>++){
+                <span class="keyword">printf</span>(<span class="string">"Hello World"</span>);
+              }
+            } 
+            
+            Time Complexity : O(n<sup>2</sup>)
+          </pre>
+          <pre>
+            <span class="keyword">for</span>(<span class="keyword">int</span> <span class="int-value">i</span> = <span class="int-value">n</span>; <span class="int-value">i</span> >= 0; <span class="int-value">i</span> /= 2){
+              <span class="keyword">printf</span>(<span class="string">"Hello World"</span>);
+            }
+            
+            Time Complexity : O(log n)
+          </pre>
+        </article>
+      </section>
+      <section class="section">
+        <header id="best-solution">
+          <h1 class="header-article">Best Solution</h1>
+        </header>
+        <article>
+          <p>
+            For our example problem, I came up with three solutions :
+          </p>
+          <ol>
+            <li>Loop</li>
+            <li>qsort() build-in function</li>
+            <li>Linked List</li>
+          </ol>
+          <p>
+            Click <a href="https://github.com/black1ava/Solution100Days/tree/master/C%2FOS%2FFind%20Max" target="_blank">here</a> to see those solutions, and compare them to find the best solution. And of course, you can come up your own new brand solution.
+          </p>
+          <img class="img-article" src="https://i.ibb.co/j3pDCVz/screenshot-5.png" alt="chart">
+          <p>
+            Based on chart above, we can determine which solution is the worst and the best. For example, if my solution is O(1), I don't care how many elements i have in my array, it take same amount of time. But if mine is O(n), the more elements I have, the more of time it would take. For example, if I have 10 elements, it will take 10ms. If i have 100 elements, it will take 100 ms. If I have 1,000,000,000 elements, it will take 11 days to finish.
+          </p>
+          <img class="img-article" src="https://i.ibb.co/fvMJGyp/31781165-723a053c-b500-11e7-937c-7b33db281efe.png" alt="chart-1">
+        </article>
+        <section class="section">
+          <article>
+            <p>
+              Finally, if you can solve a problem, that's a success, but if you want to make your success become a great success, think harder.
+            </p>
+            <blockquote>
+              <q>No Pain, No Gain</q>
+            </blockquote>
+          </article>
+        </section>
+    </article>
+  </div>
+</body>
+</html>

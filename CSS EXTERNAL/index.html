@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My Clone - index</title>
+  <style>
+    @import url('index.css');
+  </style>
+  <script>
+    function goToHome(){
+      const navigation = document.getElementById('navigation')
+      navigation.src="Home/index.html"
+      console.log(navigation.src)
+    }
+    function goToNewFeed(){
+      const navigation = document.getElementById('navigation')
+      navigation.src="NewFeed/index.html"
+      console.log(navigation.src)
+    }
+    function goToMessenger(){
+      const navigation = document.getElementById('navigation')
+      navigation.src="Messenger/index.html"
+      console.log(navigation.src)
+    }
+    function goToNotification(){
+      const navigation = document.getElementById('navigation')
+      navigation.src="Notification/index.html"
+      console.log(navigation.src)
+    }
+  </script>
+</head>
+<body>
+  <div id="index">
+    <input type="checkbox" id="check">
+    <label for="check" id="menu-btn">Menu</label>
+    <div id="dashboard">
+       <button onclick="goToHome()">Home</button>
+       <button onclick="goToNewFeed()">New Feed</button>
+       <button onclick="goToMessenger()">Messenger</button>
+       <button onclick="goToNotification()">Notification</button>
+    </div>
+  </div>
+  <div>
+    <iframe src="Home/index.html" frameborder="0" id="navigation">Home</iframe>
+  </div>
+</html>

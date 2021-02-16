@@ -1,0 +1,9 @@
+table, th, td{
+  border: 2px rgba(40, 166, 224, 0.568) solid;
+  border-collapse: collapse;
+  font-size: 18px;
+}
+
+table{
+  width: 100%;
+}

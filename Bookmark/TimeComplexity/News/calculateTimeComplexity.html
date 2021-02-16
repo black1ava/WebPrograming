@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    @import url(../../code.css);
+    @import url(../../index.css);
+    @import url(../../ProgramingLanguagePage/index.css);
+  </style>
+</head>
+<body>
+  <input type="checkbox" id="check">
+  <label for="check" id="menu-btn">Menu</label>
+  <nav>
+    <a href="#basic-calculation">How To Calculate Big O — The Basics</a>
+    <a href="#common-big-o">Common Big O Functions and How to Identify Them</a>
+    <a href="#quadratic">Quadratic Time: O(n²)</a>
+    <a href="#conclusion">Conclustion</a>
+    <a href="../../index.html">Go back</a>
+  </nav>
+  <div id="article">
+    <header>
+      <h1>How To Calculate Time Complexity With Big O Notation</h1>
+    </header>
+    <article>
+      <img class="img-article" src="https://i.ibb.co/z5MR81b/Time-Complexity.png" alt="Calculate-Time-Complexity">
+      <p>
+        Part 2 of a series breaking down Big O Notation and Time and Space Complexity for new developers.
+      </p>
+      <p>
+        If you’re on your way to becoming a software developer, you’ve most likely come across the terms ‘ Time and Space Complexity’ or ‘Big O Notation.’ If you haven’t, check out my quick primer on what Big O Notation is and why it should be on your radar.
+      </p>
+      <p>
+        Knowing how to talk about Time and Space Complexity is crucial in any budding developer’s career. First of all, this subject is known to come up in coding interviews frequently, so it’s essential to familiarize yourself with the base concepts. More importantly, though, a strong understanding of how to calculate and discuss Time and Space Complexity is going to make you a better developer by making you aware of differences in terms of efficiency and provide you with the insight to develop better solutions for problems you work on.
+      </p>
+      <p>
+        Big O Notation is the vocabulary through which we discuss and understand these principles. Hence, we need to know how to calculate Big O in the context of both space and time to unlock the ability to write the best code possible. In the scope of this article, we’ll only discuss how to calculate Big O in the case of understanding Time Complexity.
+      </p>
+      <section class="section">
+        <header id="basic-calculation">
+          <h1 class="header-article">How To Calculate Big O — The Basics</h1>
+        </header>
+        <article>
+          <p>
+            In terms of Time Complexity, Big O Notation is used to quantify how quickly runtime will grow when an algorithm (or function) runs based on the size of its input.
+          </p>
+          <p>
+            To calculate Big O, there are five steps you should follow:
+          </p>
+          <ol>
+            <li>Break your algorithm/function into individual operations</li>
+            <li>Calculate the Big O of each operation</li>
+            <li>Add up the Big O of each operation together</li>
+            <li>Remove the constants</li>
+            <li>Find the highest order term — this will be what we consider the Big O of our algorithm/function</li>
+          </ol>
+          <p>
+            With that in mind, let’s start small and calculate the Big O of a simple function.
+          </p>
+          <p>
+            Take the following JavaScript code as an example:
+          </p>
+          <pre>
+            <span class="keyword">function</span> <span class="function">add</span>(<span class="int-value">num1</span>, <span class="int-value">num2</span>) {
+
+              <span class="keyword">let</span> <span class="int-value">total</span> = <span class="int-value">num1</span> + <span class="int-value">num2</span>;
+              <span class="keyword">return</span> <span class="int-value">total</span>;
+            };
+          </pre>
+          <p>
+            Pretty simple, right? We’re just adding two numbers together.
+          </p>
+          <p>
+            So let’s break this function down to evaluate each operation. Our example is made up of 4 separate operations:
+          </p>
+          <ol>
+            <li>Looking up num1</li>
+            <li>Looking up num2</li>
+            <li>Assigning the sum of the two numbers to the variable total</li>
+            <li>Returning total.</li>
+          </ol>
+          <p>
+            Now that we’ve identified our operations let’s calculate the Big O for each of them. In this example, we’re dealing with pretty simple operations — each of which has a time complexity of O(1).
+          </p>
+          <p>
+            Their time complexity is O(1) or constant time because the operations only happen once, and they do not depend on the size of the input as they run.
+          </p>
+          <p>
+            Another way to think about this is that these operations will take the same amount of time to run, no matter what the inputs are. Running add(1,2) is going to take the same amount of time as add(10436,4783474).
+          </p>
+          <p>
+            Moving onto our next step, now that we know the Big O of each of our operations, let’s add it all together.
+          </p>
+          <p>
+            Since each of our operations has a runtime of O(1), the Big O of our algorithm is O(1 + 1 + 1 + 1) = O(4), which we will then simplify to O(1) as we strip our constants and identify our highest-order term.
+          </p>
+          <p>
+            But wait, how did we get 1 from 4? Think about what stripping out constants means. We want to boil Big O down to its most crucial element — its highest-order term. In this case, 4 is fluff. O(4) is essentially just saying O(4x1). Therefore, we’re just going to throw the four out and say the Big O for this algorithm is O(1), which indicates that it runs at constant time.
+          </p>
+          <p>
+            This might seem confusing, but remember, at the end of the day, all we care about is getting a high-level sense of how an algorithm will perform in the worst case. Therefore, we simplify Big O notation as much as we can to achieve that goal.
+          </p>
+        </article>
+      </section>
+      <section class="section">
+        <header id="common-big-o">
+          <h1 class="header-article">Common Big O Functions and How to Identify Them</h1>
+        </header>
+        <article>
+          <p>
+            So, now that you have your step-by-step guide on how to calculate Big O Notation let’s review some common Big O functions that you’ll run into in the wild and discuss how you can identify them.
+          </p>
+        </article>
+      </section>
+      <section class="section">
+        <header>
+          <h1 class="header-article">Constant Time: O(1)</h1>
+        </header>
+        <article>
+          <p>
+            As we discussed earlier, algorithms or operations are considered to have a constant time complexity when they are not dependent on the size of the input data, and the time required to run is the same every single time.
+          </p>
+          <p>
+            Addition, subtraction, assignment, and most forms of basic lookup all are considered to run at constant time, so when you see these types of operations, make a quick mental note that they run at O(1).
+          </p>
+        </article>
+      </section>
+      <section class="section">
+        <header>
+          <h1 class="header-article">Linear Time: O(n)</h1>
+        </header>
+        <article>
+          <p>
+            Here comes the algebra. Algorithms or operations that have a linear time complexity can be identified by the fact that the number of operations increases linearly with the size of the input.
+          </p>
+          <p>
+            That means if an operation has to run 100 times for a list that’s 100 items long, then it has linear time complexity.
+          </p>
+          <p>
+            for loops are a great example of an operation that has linear time complexity. Let’s look at an example:
+          </p>
+          <pre>
+            <span class="keyword">for</span> (<span class="keyword">let</span> <span class="int-value">i</span> = 0; <span class="int-value">i</span> &lt; <span class="int-value">exampleArray</span>.<span class="object">length</span>; <span class="int-value">i</span>++) {
+              <span class="keyword">console</span>.<span class="object">log</span>(<span class="string">`I've done this </span>${<span class="int-value">i</span>}<span class="string"> times before!`</span>);
+            }
+          </pre>
+          <p>
+            In the above example, if exampleArray is only 1 item long, our algorithm is going to run pretty fast. But what if that array is increased in size by, oh I don’t know, 500 million values? It’s going to take a lot longer for this algorithm to run. Therefore, we define this algorithm as having a linear time complexity to indicate that as the size of the input grows, the amount of time needed to run it increases accordingly.
+          </p>
+          <p>
+            Other examples of operations that have linear time complexity are .shift() or .unshift(), which highlights another important point:
+          </p>
+          <p>
+            When you calculate the time complexity of an algorithm, native methods have their own time complexity as well.
+          </p>
+          <p>
+            I won’t go into this further at the moment, but just be sure to note that just because a method is native to the language you are programming in, it is not guaranteed to have a constant time complexity. If you’re ever unsure, just give it a Google to find your answer.
+          </p>
+        </article>
+      </section>
+      <section class="section">
+        <header id="quadratic">
+          <h1 class="header-article">Quadratic Time: O(n²)</h1>
+        </header>
+        <article>
+          <p>
+            Algorithms or operations that have quadratic time are identified as having to perform a linear time operation for each value in an input, not just for the input itself.
+          </p>
+          <p>
+            Nested loops are a simple example of this concept:
+          </p>
+          <pre>
+          <span class="keyword">for</span> (<span class="keyword">let</span> <span class="int-value">i</span> = 0; <span class="int-value">i</span> &lt; <span class="int-value">exampleArray</span>.<span class="object">length</span>; <span class="int-value">i</span>++) {
+            <span class="keyword">for</span> (<span class="keyword">let</span> <span class="int-value">y</span> = 0; <span class="int-value">y</span> &lt; <span class="int-value">exampleArray</span>.<span class="object">length</span>; <span class="int-value">y</span>++) {
+                <span class="keyword">console</span>.<span class="object">log</span>(<span class="string">`I said ${<span class="int-value">exampleArray</span>[<span class="int-value">i</span>]} </span>${<span class="int-value">y</span>} <span class="string">times!`</span>);
+              }
+            }
+          </pre>
+          <p>
+            As you can see, the runtime of our algorithm compounds as we have to reference each item in our input twice. Therefore, we multiply the dependencies against each other (O(n*n)) to arrive at O(n²) time complexity. The same logic continues to apply if you keep nesting more loops, so runtimes of O(n³) or O(n⁴) are entirely possible.
+          </p>
+        </article>
+      </section>
+      <section class="section">
+        <header id="conclusion">
+          <h1 class="header-article">Conclustion</h1>
+        </header>
+        <article>
+          <p>
+            This is hardly a conclusive summary of all Big O functions that you will encounter, as other common Big O functions include Logarithmic Time, Exponential Time, Factorial Time, and more.
+          </p>
+          <p>
+            With that being said, you now have a framework to start calculating the time complexity of your algorithms and the amount of knowledge necessary to start coding more efficient solutions.
+          </p>
+          <p>
+            I’ll also be continuing this series with a break down of how to evaluate Space Complexity soon.
+          </p>
+        </article>
+      </section>
+  </div>
+</body>
+</html>

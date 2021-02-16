@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Home - index</title>
+  <style>
+    @import url("index.css");
+  </style>
+  <script>
+    function editInfo(event){
+      const head = document.getElementById("info");
+      const form = document.createElement("form");
+      form.style.display = "block";
+      const label = document.createElement("label");
+      const labelName = document.createTextNode("Name : ");
+      const input = document.createElement("input");
+      input.type = "text";
+      input.value = event.target.value;
+      input.placeholder = "Input your new name"
+      const submit = document.createElement("input");
+      submit.type = "submit";
+      submit.onsubmit = (event) => {
+        event.preventDefault();
+        console.log("it works")
+      }
+      label.appendChild(labelName);
+      form.appendChild(label);
+      form.appendChild(input);
+      form.appendChild(submit);
+      head.appendChild(form);
+      const editBtn = document.getElementById("edit");
+      editBtn.style.display = "none";
+    }
+  </script>
+</head>
+<body>
+  <div id="profile">
+    <div id="profile-info">
+      <img src="avatar.jpg" width="250px" alt="profile-pic"/>
+    </div>
+  </div>
+  <div id="info">
+    <p>Name: I_Don't_Know</p>
+    <p>Id: 1029384756</p>
+    <button onclick="editInfo(event)" id="edit">Edit</button>
+  </div>
+</body>
+</html>

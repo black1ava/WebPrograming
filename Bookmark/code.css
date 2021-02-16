@@ -1,0 +1,41 @@
+pre{
+  background-color: #3a3944;
+  font-size: 18px;
+  color: #ffffff;
+}
+
+.keyword{
+  color: #ffa600;
+}
+
+.function{
+  color: #ff6600;
+}
+
+.string{
+  color: #ff00ff;
+}
+
+.pre-defined{
+  color: #00ffbf;
+}
+
+.int-value{
+  color: #2598ce;
+}
+
+.comment{
+  color: #808080;
+}
+
+.object{
+  color: rgb(0, 255, 76);
+}
+
+.constructor{
+  color:rgb(103, 170, 153)
+}
+
+.class{
+  color:rgb(225, 0, 255)
+}

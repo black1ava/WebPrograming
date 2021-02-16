@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Information Technology - 4 Time Complexities That Every Programmer Should Know</title>
+  <style>
+    @import url(../../ProgramingLanguagePage/index.css);
+    @import url(../../index.css);
+    @import url(../../code.css);
+    @import url(../../table.css);
+  </style>
+</head>
+<body>
+  <input type="checkbox" id="check">
+  <label for="check" id="menu-btn">Menu</label>
+  <nav>
+    <a href="#summary">Summary</a>
+    <a href="#what-is-time-complexity">What is Time Complexity?</a>
+    <a href="#o-1">O(1)</a>
+    <a href="#o-n">O(n)</a>
+    <a href="#o-2">O(n<sup>2</sup>)</a>
+    <a href="#o-logn">O(log n)</a>
+    <a href="../../index.html">Go back</a>
+  </nav>
+  <div id="article">
+    <header>
+    <h1>4 Time Complexities That Every Programmer Should Know</h1>
+    </header>
+    <article>
+      <img class="img-article" src="https://i.ibb.co/DgBDW75/Calculate-Time-Complexity.png" alt="Time-Complexity">
+      <section class="section">
+        <header id="summary">
+          <h1 class="header-article">Summary</h1>
+        </header>
+        <article>
+          <p>
+            Learn how to compare algorithms and develop code that scales! In this post, we cover 4 Big-O notations and provide an example or 2 for each. We are going to learn the top algorithm’s running time that every developer should be familiar with. Knowing these time complexities will help you to assess if your code will scale. Also, it’s handy to compare multiple solutions for the same problem. By the end of it, you would be able to eyeball different implementations and know which one will perform better without running the code!      
+          </p>
+          <p>
+            In the previous post, we saw how Alan Turing saved millions of lives with an optimized algorithm. In most cases, faster algorithms can save you time, money and enable new technology. So, this is paramount to know how to measure algorithms’ performance.
+          </p>
+          <p>
+            In the previous post, we saw how Alan Turing saved millions of lives with an optimized algorithm. In most cases, faster algorithms can save you time, money and enable new technology. So, this is paramount to know how to measure algorithms’ performance.
+          </p>
+        </article>
+      </section>
+      <section class="section">
+        <header id="what-is-time-complexity">
+          <h1 class="header-article">What is Time Complexity?</h1>
+        </header>
+        <article>
+          <p>
+            To recap time complexity estimates how an algorithm performs regardless of the kind of machine it runs on. You can get the time complexity by “counting” the number of operations performed by your code. This time complexity is defined as a function of the input size n using Big-O notation. n indicates the input size, while O is the worst-case scenario growth rate function.
+          </p>
+          <p>
+            We use the Big-O notation to classify algorithms based on their running time or space (memory used) as the input grows. The O function is the growth rate in function of the input size n.
+          </p>
+          <p>
+            Here are the big O cheatsheet and examples that we will cover in this post before we dive in. Click on them to go to the implementation. 😉
+          </p>
+          <table>
+            <tr>
+              <th>Big O Notation</th>
+              <th>Name</th>
+              <th>Examples</th>
+            </tr>
+            <tr>
+              <td>O(1)</td>
+              <td>Constant</td>
+              <td>
+                <div id="example">
+                  <a href="#odd-or-even-number">Odd or even number</a>
+                  <a href="#look-up-table">Look up table</a>
+                </div>
+              </td>
+            </tr>
+            <tr>
+              <td>O(n)</td>
+              <td>Linear</td>
+              <td>
+                <a href="#find-max-element">Find max element in an unsorted array</a>
+                <a href="#find-element">Find an element in an array</a>
+              </td>
+            </tr>
+            <tr>
+              <td>O(n<sup>2</sup>)</td>
+              <td>Qaudratic</td>
+              <td>
+                <a href="#bubble-sort">Check duplicate</a>
+                <a href="#alpha-oconst">Alphabets only</a>
+              </td>
+            </tr>
+            <tr>
+              <td>O(log n)</td>
+              <td>Logarithmic</td>
+              <td>
+                <a href="#binary-search">Binary Search</a>
+                <a href="#binary-tree-sort">Sorted an array using binary tree</a>
+              </td>
+            </tr>
+          </table>
+        </article>
+      </section>
+      <section class="section">
+        <header id="o-1">
+          <h1 class="header-article">O(1) - Constant Time</h1>
+        </header>
+        <article>
+          <p>
+            O(1) describes algorithms that take the same amount of time to compute regardless of the input size.
+          </p>
+          <p>
+            For instance, if a function takes the same time to process ten elements and 1 million items, then we say that it has a constant growth rate or O(1). Let’s see some cases.
+          </p>
+        </article>
+      </section>
+      <section class="section">
+        <header id="odd-or-even-number">
+          <h1 class="header-article">Odd or even number</h1>
+        </header>
+        <article>
+          <p>Find if a number is odd or even.</p>
+          <pre>
+            <span class="keyword">function</span> <span class="function">isEvenOrOdd</span>(<span class="int-value">n</span>) {
+              <span class="keyword">return</span> <span class="int-value">n</span> % 2 ? <span class="string">'Odd'</span> : <span class="string">'Even'</span>;
+            }
+            
+            <span class="keyword">console</span>.<span class="object">log</span>(<span class="function">isEvenOrOdd</span>(10)); <span class="comment">// => Even</span>
+            <span class="keyword">console</span>.<span class="object">log</span>(<span class="function">isEvenOrOdd</span>(10001)); <span class="comment">// => Odd</span>            
+          </pre>
+        </article>
+      </section>
+      <section class="section">
+        <header id="look-up-table">
+          <h1 class="header-article">Look up table</h1>
+        </header>
+        <article>
+          <p>Given a string, find its word frequency data.</p>
+          <pre>
+            <span class="keyword">const</span> <span class="int-value">dictionary</span> = { 
+              <span class="object">the</span>: 22038615, 
+              <span class="object">be</span>: 12545825, 
+              <span class="object">and</span>: 10741073, 
+              <span class="object">of</span>: 10343885, 
+              <span class="object">a</span>: 10144200, 
+              <span class="object">in</span>: 6996437, 
+              <span class="object">to</span>: 6332195 
+            };
+
+            <span class="keyword">function</span> <span class="function">getWordFrequency</span>(<span class="int-value">dictionary</span>, <span class="int-value">word</span>) {
+              <span class="keyword">return</span> <span class="int-value">dictionary</span>[<span class="int-value">word</span>];
+            }
+
+            <span class="keyword">console</span>.<span class="object">log</span>(<span class="function">getWordFrequency</span>(<span class="int-value">dictionary</span>, <span class="string">'the'</span>));
+            <span class="keyword">console</span>.<span class="object">log</span>(<span class="function">getWordFrequency</span>(<span class="int-value">dictionary</span>, <span class="string">'in'</span>));
+          </pre>
+        </article>
+      </section>
+      <section class="section">
+        <header id="o-n">
+          <h1 class="header-article">O(n) - Linear</h1>
+        </header>
+        <article>
+          <p>
+            Linear running time algorithms are widespread. These algorithms imply that the program visits every element from the input.
+          </p>
+          <p>
+            Linear time complexity O(n) means that the algorithms take proportionally longer to complete as the input grows.
+          </p>
+        </article>
+      </section>
+      <section class="section">
+        <header>
+          <h1 class="header-article">Examples of linear time algorithms:</h1>
+        </header>
+        <article>
+          <ul>
+            <li>Find max element in an unsorted array</li>
+            <li>Find an element in an array</li>
+          </ul>
+          <p>Let's implement these example: </p>
+        </article>
+      </section>
+      <section class="section">
+        <header id="find-max-element">
+          <h1 class="header-article">Find max element in an unsorted array</h1>
+        </header>
+        <article>
+          <p>Let’s say you want to find a max element in an unsorted array</p>
+          <pre>
+            <span class="keyword">function</span> <span class="function">findMaxElement</span>(<span class="int-value">arr</span>){
+              <span class="keyword">let</span> <span class="int-value">max</span> = 0;
+              <span class="keyword">for</span>(<span class="keyword">let</span> <span class="int-value">element</span> <span class="keyword">of</span> <span class="int-value">arr</span>){
+                <span class="keyword">if</span>(<span class="int-value">element</span> > <span class="int-value">max</span>){
+                  <span class="int-value">max</span> = <span class="int-value">element</span>;
+                }
+              }
+              <span class="keyword">return</span> <span class="int-value">max</span>;
+            }
+
+            <span class="keyword">console</span>.<span class="object">log</span>(<span class="function">findMaxElement</span>([1, 3, 5, 2, 4])); <span class="comment">// 5</span>
+            <span class="keyword">console</span>.<span class="object">log</span>(<span class="function">findMaxElement</span>([3, 10, 2, 39, 33, 56])); <span class="comment">// 56</span>
+          </pre>
+        </article>
+      </section>
+      <section class="section">
+        <header id="find-element">
+          <h1 class="header-article">Find an element in an array</h1>
+        </header>
+        <article>
+          <p>You've created an array, and want to know that if an element is in that array</p>
+          <pre>
+            <span class="keyword">const</span> <span class="int-value">array</span> = [1, 9, 2, 8, 3, 7];
+
+            <span class="keyword">function</span> <span class="function">findElement</span>(<span class="int-value">arr</span>, <span class="int-value">n</span>){
+              <span class="keyword">for</span>(<span class="keyword">let</span> <span class="int-value">element</span> <span class="keyword">of</span> <span class="int-value">arr</span>){
+                <span class="keyword">if</span>(<span class="int-value">element</span> === <span class="int-value">n</span>){
+                  <span class="keyword">return</span> <span class="keyword">true</span>;
+                }
+              }
+              <span class="keyword">return</span> <span class="keyword">false</span>;
+            }
+
+            <span class="keyword">console</span>.<span class="object">log</span>(<span class="function">findElement</span>(<span class="int-value">array</span>, <span class="int-value">8</span>)); <span class="comment">// true</span>
+            <span class="keyword">console</span>.<span class="object">log</span>(<span class="function">findElement</span>(<span class="int-value">array</span>, <span class="int-value">10</span>)); <span class="comment">// false</span>
+          </pre>
+        </article>
+      </section>
+      <section class="section">
+        <header id="o-2">
+          <h1 class="header-article">O(n<sup>2</sup>) - Qaudratic Time</h1>
+        </header>
+        <article>
+          <p>
+            A function with a quadratic time complexity has a growth rate of n2. If the input is size 2, it will do four operations. If the input is size 8, it will take 64, and so on.
+          </p>
+          <p>
+            Here are some examples of quadratic algorithms:
+          </p>
+          <ul>
+            <li>Bubble Sort</li>
+            <li>Alphabet Only</li>
+          </ul>
+        </article>
+      </section>
+      <section class="section">
+        <header id="bubble-sort">
+          <h1 class="header-article">Bubble Sort</h1>
+        </header>
+        <article>
+          <p>
+            Let's say you want to know your array has duplicated element or not
+          </p>
+          <pre>
+            <span class="keyword">const</span> <span class="int-value">arr1</span> = [1, 3, 5, 2, 4];
+            <span class="keyword">const</span> <span class="int-value">arr2</span> = [1, 3, 1, 5, 2];
+
+            <span class="keyword">function</span> <span class="function">isDuplicated</span>(<span class="int-value">arr</span>){
+              <span class="keyword">for</span>(<span class="keyword">let</span> <span class="int-value">i</span> = 0; <span class="int-value">i</span> &lt; <span class="int-value">arr</span>.<span class="object">length</span> - 1; <span class="int-value">i</span>++){
+                <span class="keyword">for</span>(<span class="keyword">let</span> <span class="int-value">j</span> = <span class="int-value">i</span> + 1; <span class="int-value">j</span> &lt; <span class="int-value">arr</span>.<span class="object">length</span>; <span class="int-value">j</span>++){
+                  <span class="keyword">if</span>(<span class="int-value">arr</span>[<span class="int-value">i</span>] === <span class="int-value">arr</span>[<span class="int-value">j</span>]){
+                    <span class="keyword">return</span>  <span class="keyword">true</span>;
+                  }
+                }
+              }
+              <span class="keyword">return</span>  <span class="keyword">false</span>;
+            }
+
+            <span class="keyword">console</span>.<span class="object">log</span>(<span class="function">isDuplicated</span>(<span class="int-value">arr1</span>)); <span class="comment">// true</span>
+            <span class="keyword">console</span>.<span class="object">log</span>(<span class="function">isDuplicated</span>(<span class="int-value">arr1</span>)); <span class="comment">// false</span>
+          </pre>
+        </article>
+      </section>
+      <section class="section">
+        <header id="alpha-only">
+          <h1 class="header-article">Alphabets only</h1>
+        </header>
+        <article>
+          <p>
+            You have an string and make sure it is all alphabets
+          </p>
+          <pre>
+            <span class="keyword">const</span> <span class="int-value">str1</span> = <span class="string">"HelloWorld"</span>;
+            <span class="keyword">const</span> <span class="int-value">str2</span> = <span class="string">"Hello123"</span>;
+
+            <span class="keyword">function</span> <span class="function">alphabetOnly</span>(<span class="int-value">str</span>){
+              <span class="keyword">const</span> <span class="int-value">number</span> = <span class="string">"0123456789"</span>;
+              <span class="keyword">for</span>(<span class="keyword">let</span> <span class="int-value">i</span> = 0; <span class="int-value">i</span> &lt; 10; <span class="int-value">i</span>++){
+                <span class="keyword">for</span>(<span class="keyword">let</span> <span class="int-value">j</span> = 0; <span class="int-value">j</span> &lt; <span class="int-value">str</span>.<span class="object">length</span>; <span class="int-value">j</span>++){
+                  <span class="keyword">if</span>(<span class="int-value">str</span>[<span class="int-value">i</span>] === <span class="int-value">str</span>[<span class="int-value">j</span>]){
+                    <span class="keyword">return</span>  <span class="keyword">false</span>;
+                  }
+                }
+              }
+              <span class="keyword">return</span>  <span class="keyword">true</span>;
+            }
+
+            <span class="keyword">console</span>.<span class="object">log</span>(<span class="function">alphabetOnly</span>(<span class="int-value">str1</span>)); <span class="comment">// true</span>
+            <span class="keyword">console</span>.<span class="object">log</span>(<span class="function">alphabetOnly</span>(<span class="int-value">str2</span>)); <span class="comment">// false</span>
+          </pre>
+        </article>
+      </section>
+      <section class="section">
+        <header id="o-logn">
+          <h1 class="header-article">O(log n) - Arithmic Time</h1>
+        </header>
+        <article>
+          <p>
+            Logarithmic time complexities usually apply to algorithms that divide problems in half every time.
+          </p>
+          <p>Let's look at the examples: </p>
+        </article>
+      </section>
+      <section class="section">
+        <header id="binary-search">
+          <h1 class="header-article">Binary search</h1>
+        </header>
+        <article>
+          <p>Find the index of a sorted array</p>
+          <pre>
+            <span class="keyword">function</span> <span class="function">indexOf</span>(<span class="int-value">array</span>, <span class="int-value">element</span>, <span class="int-value">offset</span> = 0) {
+              <span class="comment">// split array in half</span>
+              <span class="keyword">const</span> <span class="int-value">half</span> = <span class="keyword">parseInt</span>(<span class="int-value">array</span>.<span class="object">length</span> / 2);
+              <span class="keyword">const</span> <span class="int-value">current</span> = <span class="int-value">array</span>[<span class="int-value">half</span>];
+            
+              <span class="keyword">if</span>(<span class="int-value">current</span> === <span class="int-value">element</span>) {
+                <span class="keyword">return</span> <span class="int-value">offset</span> + <span class="int-value">half</span>;
+              } <span class="keyword"> else if</span>(<span class="int-value">element</span> > <span class="int-value">current</span>) {
+                <span class="keyword">const</span> <span class="int-value">right</span> = <span class="int-value">array</span>.<span class="object">slice</span>(<span class="int-value">half</span>);
+                <span class="keyword">return</span> <span class="function">indexOf</span>(<span class="int-value">right</span>, <span class="int-value">element</span>, <span class="int-value">offset</span> + <span class="int-value">half</span>);
+              } <span class="keyword">else</span> {
+                <span class="keyword">const</span> <span class="int-value">left</span> = <span class="int-value">array</span>.<span class="object">slice</span>(0, <span class="int-value">half</span>)
+                <span class="keyword">return</span> <span class="function">indexOf</span>(<span class="int-value">left</span>, <span class="int-value">element</span>, <span class="int-value">offset</span>);
+              }
+            }
+            
+            <span class="comment">/// Usage example with a list of names in ascending order:</span>
+            <span class="keyword">const</span> <span class="int-value">dictionary</span> = [
+              <span class="string">"Adrian"</span>, 
+              <span class="string">"Bella"</span>, 
+              <span class="string">"Charlotte"</span>, 
+              <span class="string">"Daniel"</span>, 
+              <span class="string">"Emma"</span>, 
+              <span class="string">"Hanna"</span>, 
+              <span class="string">"Isabella"</span>
+            ];
+            <span class="keyword">console</span>.<span class="object">log</span>(<span class="function">indexOf</span>(<span class="int-value">dictionary</span>, <span class="string">'Hanna'</span>));   <span class="comment">// => 5</span>
+            <span class="keyword">console</span>.<span class="object">log</span>(<span class="function">indexOf</span>(<span class="int-value">dictionary</span>, <span class="string">'Adrian'</span>));  <span class="comment">// => 0</span>
+            <span class="keyword">console</span>.<span class="object">log</span>(<span class="function">indexOf</span>(<span class="int-value">dictionary</span>, <span class="string">'Isabella'</span>)); <span class="comment">// => 6</span>
+          </pre>
+        </article>
+      </section>
+      <section class="section">
+        <header id="binary-tree-sort">
+          <h1 class="header-article">Sorted an array using binary tree</h1>
+        </header>
+        <article>
+          <p>
+            This time sorted an array using binary tree
+          </p>
+          <pre>
+            <span class="keyword">class</span> <span class="class">Node</span>{
+              <span class="constructor">constructor</span>(<span class="int-value">data</span>){
+                <span class="keyword">this</span>.<span class="int-value">data</span> = <span class="int-value">data</span>;
+                <span class="keyword">this</span>.<span class="int-value">left</span> = <span class="keyword">this</span>.<span class="int-value">data</span> = <span class="keyword">null</span>;
+              }
+            }
+            
+            <span class="keyword">function</span> <span class="function">newNode</span>(<span class="int-value">data</span>){
+              <span class="keyword">const</span> <span class="int-value">temp</span> = <span class="keyword">new</span> <span class="class">Node</span>(<span class="int-value">data</span>);
+              <span class="keyword">return</span> <span class="int-value">temp</span>;
+            }
+            
+            <span class="keyword">function</span> <span class="function">addNode</span>(<span class="int-value">head</span>, <span class="int-value">data</span>){
+              <span class="keyword">if</span>(<span class="int-value">head</span> === <span class="keyword">null</span>){
+                <span class="keyword">return</span> <span class="function">newNode</span>(<span class="int-value">data</span>);
+              }
+            
+              <span class="keyword">if</span>(<span class="int-value">data</span> &lt; <span class="int-value">head</span>.<span class="int-value">data</span>){
+                <span class="int-value">head</span>.<span class="int-value">left</span> = <span class="function">addNode</span>(<span class="int-value">head</span>.<span class="int-value">left</span>, <span class="int-value">data</span>);
+              }<span class="keyword">else</span>{
+                <span class="int-value">head</span>.<span class="int-value">right</span> = <span class="function">addNode</span>(<span class="int-value">head</span>.<span class="int-value">right</span>, <span class="int-value">data</span>);
+              }
+            
+              <span class="keyword">return</span> <span class="int-value">head</span>;
+            }
+            
+            <span class="keyword">function</span> <span class="function">showNode</span>(<span class="int-value">head</span>){
+              <span class="keyword">if</span>(<span class="int-value">head</span> !== <span class="keyword">null</span>){
+                <span class="function">showNode</span>(<span class="int-value">head</span>.<span class="int-value">left</span>);
+                <span class="keyword">console</span>.<span class="object">log</span>(<span class="int-value">head</span>.<span class="int-value">data</span>);
+                <span class="function">showNode</span>(<span class="int-value">head</span>.<span class="int-value">right</span>);
+              }
+            }
+            
+            <span class="keyword">const</span> <span class="int-value">array</span> = [1, 3, 5, 2, 4];
+            
+            <span class="keyword">let</span> <span class="int-value">head</span> = <span class="keyword">null</span>;
+            
+            
+            <span class="keyword">for</span>(<span class="keyword">let</span> <span class="int-value">element</span> <span class="keyword">of</span> <span class="int-value">array</span>){
+              <span class="int-value">head</span> = <span class="function">addNode</span>(<span class="int-value">head</span>, <span class="int-value">element</span>);
+            }
+            
+            <span class="function">showNode</span>(<span class="int-value">head</span>);
+          </pre>
+        </article>
+      </section>
+    </article>
+  </div>
+</body>
+</html>

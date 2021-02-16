@@ -1,0 +1,101 @@
+body{
+  background:darkslategray;
+}
+
+#name{
+  text-align: center;
+  text-decoration: underline;
+  font-size: 36px;
+  font-family: Comic Sans, Comic Sans MS, cursive !important;
+}
+
+nav{
+  background: rgba(100, 100, 100, 0.5);
+  top: 15%;
+  width: 20%;
+  left: -25%;
+  height: 85vh;
+  position: fixed;
+  float: left;
+  overflow: scroll;
+  overflow-x: hidden;
+  border-radius: 15px;
+  transition: left 0.5s ease-in-out;
+}
+
+::-webkit-scrollbar{
+  width: 0;
+}
+
+nav a{
+  display: block;
+  color: black;
+  background: transparent;
+  text-decoration: none;
+  font-size: 28px;
+  text-align: center;
+  border-radius: 15px;
+  padding: 25px 0px 15px 0px;
+  margin-top: 15%;
+  margin-bottom: 25%;
+  transition-property: background, color;
+  transition: all 0.5s ease-in-out;
+}
+
+nav a:hover{
+  background: black;
+  color: white;
+}
+
+#menu-btn{
+  position: fixed;
+  cursor: pointer;
+  font-size: 28px;
+  text-decoration: underline;
+  top: 25px;
+  padding: 15px;
+  border-radius: 15px;
+  transition: background 0.5s ease-in-out;
+}
+
+#menu-btn:hover{
+  background: violet;
+}
+
+#check{
+  display: none;
+}
+
+#check:checked ~ nav{
+  left: 0%;
+}
+
+.article-area{
+  float: right;
+}
+
+.article-area h1{
+  text-align: left;
+  font-size: 28px;
+}
+
+#gnrl-news{
+  position: fixed;
+  right: 0%;
+  padding-right: 25%;
+  width: 50%;
+  overflow: scroll;
+  overflow-x: hidden;
+  height: 85vh;
+  transition: left 0.5s ease-in-out;
+}
+
+#gnrl-news p{
+  text-align: justify;
+  font-size: 18px;
+}
+
+header a{
+  text-decoration: none;
+  color: black;
+}

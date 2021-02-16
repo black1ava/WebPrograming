@@ -1,0 +1,69 @@
+*{
+  padding: 0;
+  margin: 0;
+  font-family: 'Brush Script MT', cursive;
+}
+
+#index{
+  float: left;
+  height: 100vh;
+  width: 15%;
+}
+
+#dashboard{
+  position: relative;
+  top: 2vh;
+  left: 0px;
+  width: 100%;
+  height: 93vh;
+  background-color: lightgreen;
+  border-radius: 25px;
+  transition: left 0.5s ease-in-out;
+}
+
+#check{
+  display: none;
+}
+
+#menu-btn{
+  font-size: 30px;
+  background: lightblue;
+   padding: 15px; 
+  border-radius: 25px;
+  cursor: pointer;
+}
+
+#menu-btn:hover{
+  color: purple;
+}
+
+#dashboard button{
+  display: block;
+  font-size: 36px;
+  width: 100%;
+  height: 10%;
+  margin-bottom: 40%;
+  border-radius: 25px;
+  border: none;
+  background: transparent;
+  outline: none;
+  cursor: pointer;
+  transition: all 0.5s ease-in-out;
+  transition-property: background, text-decoration;
+}
+
+#dashboard button:hover{
+  background: lightsalmon;
+  text-decoration: underline;
+
+}
+
+#check:checked ~ #dashboard{
+  left: -105%;
+}
+
+#navigation{
+  float: right;
+  width: 85%;
+  height: 100vh;
+}
